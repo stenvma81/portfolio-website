@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: defaultpassword
       POSTGRES_DB: portfoliodb
     ports:
-      - "5423-5423"
+      - "5423:5423"
 
   frontend:
     build:
@@ -16,7 +16,7 @@ services:
       dockerfile: Dockerfile.react
     container_name: portfolio-frontend-container
     ports:
-      - "5173:5173"
+      - "3000:3000"
 
   backend:
     build:
