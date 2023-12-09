@@ -3,8 +3,7 @@ const cors = require('cors');
 const app = express();
 const port = 3001;
 
-const message = 'Hello from the Node.js backend!';
-
+const message = 'Node.js server is running on port ' + port
 app.use(cors());
 
 app.use((req, res, next) => {
