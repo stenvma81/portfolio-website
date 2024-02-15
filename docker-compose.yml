@@ -1,27 +1,14 @@
-version: '3.4'
+version: '3'
 services:
-  postgres:
-    image: postgres:latest
-    container_name: portfolio-postgres-container
-    environment:
-      POSTGRES_USER: defaultuser
-      POSTGRES_PASSWORD: defaultpassword
-      POSTGRES_DB: portfoliodb
-    ports:
-      - "5423:5423"
-
   frontend:
     build:
-      context: ./frontend
+      context: ./portfolio-website
       dockerfile: Dockerfile.react
-    container_name: portfolio-frontend-container
     ports:
       - "3000:3000"
-
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile.node
-    container_name: portfolio-backend-container
     ports:
-      - "3001:3001"
+      - "8000:8000"

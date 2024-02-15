@@ -1,0 +1,21 @@
+FROM node:latest as build
+
+WORKDIR /app/portfolio-website
+
+COPY package.json .
+COPY package-lock.json .
+RUN npm install --production=false
+
+COPY . .
+
+RUN npm run build
+
+FROM node:alpine
+
+WORKDIR /app/frontend
+
+COPY --from=build /app/frontend/.next ./.next
+
+EXPOSE 3000
+
+CMD ["npm", "start"]

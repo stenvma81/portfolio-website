@@ -1,4 +1,6 @@
+import React, { useState } from 'react';
 import Image from "next/image";
+import TestComponent from '../../components/TestComponent';
 
 export default function Home() {
   return (
@@ -108,6 +110,7 @@ export default function Home() {
           </p>
         </a>
       </div>
+      <TestComponent />
     </main>
   );
 }
